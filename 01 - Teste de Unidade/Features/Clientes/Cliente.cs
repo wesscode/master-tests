@@ -1,7 +1,7 @@
 ﻿using Features.Core;
 using FluentValidation;
 
-namespace Feature.Clientes
+namespace Features.Clientes
 {
     public class Cliente : Entity
     {

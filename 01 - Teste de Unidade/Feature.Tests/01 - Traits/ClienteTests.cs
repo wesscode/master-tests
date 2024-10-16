@@ -1,6 +1,6 @@
-﻿using Feature.Clientes;
+﻿using Features.Clientes;
 
-namespace Feature.Tests
+namespace Features.Tests
 {
     public class ClienteTests
     {

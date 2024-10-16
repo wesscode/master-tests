@@ -1,6 +1,4 @@
-﻿using Feature.Clientes;
-
-namespace Feature.Tests
+﻿namespace Features.Tests
 {
     [Collection(nameof(ClienteCollection))]
     public class ClienteTesteValido

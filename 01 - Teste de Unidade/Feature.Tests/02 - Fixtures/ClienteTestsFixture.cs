@@ -1,6 +1,6 @@
-﻿using Feature.Clientes;
+﻿using Features.Clientes;
 
-namespace Feature.Tests
+namespace Features.Tests
 {
     [CollectionDefinition(nameof(ClienteCollection))]
     public class ClienteCollection : ICollectionFixture<ClienteTestsFixture> { }

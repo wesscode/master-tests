@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace Feature.Clientes
+namespace Features.Clientes
 {
     public class ClienteEmailNotification : INotification
     {
