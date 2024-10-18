@@ -43,8 +43,10 @@ namespace Features.Tests
             var clienteRepo = new Mock<IClienteRepository>();
             var mediatr = new Mock<IMediator>();
 
-            // Act
             var clienteService = new ClienteService(clienteRepo.Object, mediatr.Object);
+
+            // Act
+            clienteService.Adicionar(cliente);
 
             //Assert
             Assert.False(cliente.EhValido());
