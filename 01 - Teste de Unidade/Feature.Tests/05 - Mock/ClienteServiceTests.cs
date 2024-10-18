@@ -14,7 +14,7 @@ namespace Features.Tests
             _clienteTestsBogusFixture = clienteTestsBogusFixture;
         }
 
-        [Fact(DisplayName ="Adicionar Cliente com Sucesso")]
+        [Fact(DisplayName = "Adicionar Cliente com Sucesso")]
         [Trait("Categoria", "Cliente Service Mock Tests")]
         public void ClienteService_Adicionar_DeveExecutarComSucesso()
         {
@@ -50,6 +50,27 @@ namespace Features.Tests
             Assert.False(cliente.EhValido());
             clienteRepo.Verify(r => r.Adicionar(cliente), Times.Never);
             mediatr.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Never);
+        }
+
+        [Fact(DisplayName = "Obter Clientes Ativos")]
+        [Trait("Categoria", "Cliente Service Mock Tests")]
+        public void ClienteService_ObterTodosAtivos_DeveRetornarApenasClientesAtivos()
+        {
+            // Arrange
+            var clienteRepo = new Mock<IClienteRepository>();
+            var mediatr = new Mock<IMediator>();
+
+            clienteRepo.Setup(c => c.ObterTodos()).Returns(_clienteTestsBogusFixture.ObterClientesVariados());
+
+            var clienteService = new ClienteService(clienteRepo.Object, mediatr.Object);
+
+            // Act
+            var clientes = clienteService.ObterTodosAtivos();
+
+            // Assert
+            clienteRepo.Verify(f => f.ObterTodos(), Times.Once);
+            Assert.True(clientes.Any());
+            Assert.False(clientes.Count(c => !c.Ativo) > 0);
         }
     }
 }
