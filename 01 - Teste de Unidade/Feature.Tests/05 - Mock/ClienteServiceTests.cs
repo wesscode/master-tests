@@ -38,8 +38,18 @@ namespace Features.Tests
         [Trait("Categoria", "Cliente Service Mock Tests")]
         public void ClienteService_Adicionar_DeveFalharDevidoClienteInvalido()
         {
+            // Arrange
+            var cliente = _clienteTestsBogusFixture.GerarClienteInvalido();
+            var clienteRepo = new Mock<IClienteRepository>();
+            var mediatr = new Mock<IMediator>();
 
+            // Act
+            var clienteService = new ClienteService(clienteRepo.Object, mediatr.Object);
+
+            //Assert
+            Assert.False(cliente.EhValido());
+            clienteRepo.Verify(r => r.Adicionar(cliente), Times.Never);
+            mediatr.Verify(m => m.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Never);
         }
-
     }
 }
