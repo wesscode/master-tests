@@ -5,6 +5,8 @@ using Moq.AutoMock;
 
 namespace Features.Tests
 {
+    // EXEMPLO UTILIZANDO AUTOMOCK E A FIXTURE DO BOGUS PARA OBTER DADOS HUMANOS.
+
     [Collection(nameof(ClienteBogusCollection))]
     public class ClienteServiceAutoMockerTests
     {

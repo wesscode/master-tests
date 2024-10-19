@@ -4,6 +4,8 @@ using Moq;
 
 namespace Features.Tests
 {
+    // EXEMPLO UTILIZANDO AUTOMOCK E UMA FIXTURE COM AUTOMOCK
+
     [Collection(nameof(ClienteAutoMockerCollection))]
     public class ClienteServiceAutoMockerFixtureTests
     {
