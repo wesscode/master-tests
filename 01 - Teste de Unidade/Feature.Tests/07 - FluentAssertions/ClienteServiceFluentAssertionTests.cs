@@ -1,5 +1,6 @@
 ﻿using Features.Clientes;
 using FluentAssertions;
+using FluentAssertions.Extensions;
 using MediatR;
 using Moq;
 
@@ -76,6 +77,10 @@ namespace Features.Tests
             // Assert (FluentAssertion)
             clientes.Should().HaveCountGreaterThanOrEqualTo(1).And.OnlyHaveUniqueItems(); // garantindo que sejam itens únicos.
             clientes.Should().NotContain(c => !c.Ativo);
+            
+            _clienteService.ExecutionTimeOf(c => c.ObterTodosAtivos())
+                .Should()
+                .BeLessThanOrEqualTo(50.Milliseconds(), because: "é executado milhares de vezes por segundo.");
         }
     }
 }
