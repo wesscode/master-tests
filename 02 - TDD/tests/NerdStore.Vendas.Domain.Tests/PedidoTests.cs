@@ -53,5 +53,20 @@ namespace NerdStore.Vendas.Domain.Tests
             // Act & Assert
             Assert.Throws<DomainException>(() => pedido.AdicionarItem(pedidoItem));
         }
+
+        [Fact(DisplayName = "Adicionar Item Pedido Existente acima do permitido")]
+        [Trait("Categoria", "Vendas - Pedido")]
+        public void AdicionarItemPedido_ItemExistenteSomaUnidadesAcimaDoPermitido_DeveRetornarException()
+        {
+            // Arrange
+            var pedido = Pedido.PedidoFactory.NovoPedidoRascunho(Guid.NewGuid());
+            var produtoId = Guid.NewGuid();
+            var pedidoItem = new PedidoItem(produtoId, "Produto Teste", 1, 100);
+            var pedidoItem2 = new PedidoItem(produtoId, "Produto Teste", Pedido.MAX_UNIDADES_ITEM, 100);
+            pedido.AdicionarItem(pedidoItem);
+
+            // Act & Assert
+            Assert.Throws<DomainException>(() => pedido.AdicionarItem(pedidoItem2));
+        }
     }
 }
