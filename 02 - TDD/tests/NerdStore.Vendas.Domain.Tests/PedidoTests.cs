@@ -122,5 +122,21 @@ namespace NerdStore.Vendas.Domain.Tests
             // Assert
             Assert.Equal(totalPedido, pedido.ValorTotal);
         }
+
+        [Fact(DisplayName = "Atualizar Item Pedido Quantidade acima do permitido")]
+        [Trait("Categoria", "Vendas - Pedido")]
+        public void AtualizarItemPedido_ItemUnidadesAcimaDoPermitido_DeveRetornarException()
+        {
+            // Arrange
+            var pedido = Pedido.PedidoFactory.NovoPedidoRascunho(Guid.NewGuid());
+            var produtoId = Guid.NewGuid();
+            var pedidoItemExistente1 = new PedidoItem(produtoId, "Produto Teste", 3, 15);
+            pedido.AdicionarItem(pedidoItemExistente1);
+
+            var pedidoItemAtualizado = new PedidoItem(produtoId, "Produto Teste", Pedido.MAX_UNIDADES_ITEM + 1, 15);
+
+            // Act & Assert
+            Assert.Throws<DomainException>(() => pedido.AtualizarItem(pedidoItemAtualizado));
+        }
     }
 }
