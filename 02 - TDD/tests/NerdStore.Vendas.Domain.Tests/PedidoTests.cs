@@ -99,5 +99,28 @@ namespace NerdStore.Vendas.Domain.Tests
             // Assert
             Assert.Equal(novaQuantidade, pedido.PedidoItems.FirstOrDefault(p => p.ProdutoId == produtoId).Quantidade);
         }
+
+        [Fact(DisplayName = "Atualizar Item Pedido Validar Total")]
+        [Trait("Categoria", "Vendas - Pedido")]
+        public void AtualizarItemPedido_PedidoComProdutosDiferentes_DeveAtualizarValorTotal()
+        {
+            // Arrange
+            var pedido = Pedido.PedidoFactory.NovoPedidoRascunho(Guid.NewGuid());
+            var produtoId = Guid.NewGuid();
+            var pedidoItemExistente1 = new PedidoItem(Guid.NewGuid(), "Produto Xpto", 2, 100);
+            var pedidoItemExistente2 = new PedidoItem(produtoId, "Produto Teste", 3, 15);
+            pedido.AdicionarItem(pedidoItemExistente1);
+            pedido.AdicionarItem(pedidoItemExistente2);
+
+            var pedidoItemAtualizado = new PedidoItem(produtoId, "Produto Teste", 5, 15);
+            var totalPedido = pedidoItemExistente1.Quantidade * pedidoItemExistente1.ValorUnitario +
+                              pedidoItemAtualizado.Quantidade * pedidoItemAtualizado.ValorUnitario;
+
+            // Act
+            pedido.AtualizarItem(pedidoItemAtualizado);
+
+            // Assert
+            Assert.Equal(totalPedido, pedido.ValorTotal);
+        }
     }
 }
