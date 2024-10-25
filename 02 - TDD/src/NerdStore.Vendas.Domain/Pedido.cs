@@ -1,4 +1,5 @@
-﻿using NerdStore.Core.DomainObjects;
+﻿using FluentValidation.Results;
+using NerdStore.Core.DomainObjects;
 using System.Collections.ObjectModel;
 
 namespace NerdStore.Vendas.Domain
@@ -15,9 +16,22 @@ namespace NerdStore.Vendas.Domain
         public Guid ClienteId { get; set; }
         public decimal ValorTotal { get; private set; }
         public PedidoStatus PedidoStatus { get; private set; }
+        public bool VoucherUtilizado { get; set; }
+        public Voucher Voucher { get; set; }
 
         private readonly List<PedidoItem> _pedidoItems;
         public IReadOnlyCollection<PedidoItem> PedidoItems => _pedidoItems;
+
+        public ValidationResult AplicarVoucher(Voucher voucher)
+        {
+            var result = voucher.ValidarSeAplicavel();
+            if (!result.IsValid) return result;
+
+            Voucher = voucher;
+            VoucherUtilizado = true;
+
+            return result;
+        }
 
         private void CalcularValorPedido()
         {
