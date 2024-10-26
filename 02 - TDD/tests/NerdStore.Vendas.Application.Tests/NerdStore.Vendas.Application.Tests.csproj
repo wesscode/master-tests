@@ -12,12 +12,15 @@
   <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="MOQ" Version="4.20.72" />
+    <PackageReference Include="MOQ.automock" Version="3.5.0" />
     <PackageReference Include="xunit" Version="2.5.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\NerdStore.Vendas.Application\NerdStore.Vendas.Application.csproj" />
+    <ProjectReference Include="..\..\src\NerdStore.Core\NerdStore.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
