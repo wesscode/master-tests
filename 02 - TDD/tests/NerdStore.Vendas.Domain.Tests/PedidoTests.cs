@@ -272,5 +272,28 @@ namespace NerdStore.Vendas.Domain.Tests
             // Assert
             Assert.Equal(0, pedido.ValorTotal);
         }
+
+        [Fact(DisplayName = "Aplicar voucher recalcular desconto na modificação do pedido")]
+        [Trait("Categoria", "Vendas - Pedido")]
+        public void AplicarVoucher_ModificarItensPedido_DeveCalcularDescontoValorTotal()
+        {
+            // Arrange
+            var pedido = Pedido.PedidoFactory.NovoPedidoRascunho(Guid.NewGuid());
+            var pedidoItem1 = new PedidoItem(Guid.NewGuid(), "Produto Xpto", 2, 100);
+            pedido.AdicionarItem(pedidoItem1);
+
+            var voucher = new Voucher("PROMO-15-OFF", null, 50, 1, TipoDescontoVoucher.Valor, DateTime.Now.AddDays(10), true, false);
+            pedido.AplicarVoucher(voucher);
+
+            var pedidoItem2 = new PedidoItem(Guid.NewGuid(), "Produto teste", 4, 25);
+
+            // Act
+            pedido.AdicionarItem(pedidoItem2);
+
+            // Assert
+            var totalEsperado = pedido.PedidoItems.Sum(i => i.Quantidade * i.ValorUnitario) - voucher.ValorDesconto;
+             
+            Assert.Equal(totalEsperado, pedido.ValorTotal);
+        }
     }
 }
