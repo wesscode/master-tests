@@ -30,8 +30,14 @@ namespace NerdStore.Vendas.Application.Commands
             }
             else
             {
+                var pedidoItemExistente = pedido.PedidoItemExistente(pedidoItem);
                 pedido.AdicionarItem(pedidoItem);
-                _pedidoRepository.AdicionarItem(pedidoItem);
+
+                if (pedidoItemExistente)
+                    _pedidoRepository.AtualizarItem(pedido.PedidoItems.FirstOrDefault(p => p.ProdutoId == pedidoItem.ProdutoId));
+                else
+                    _pedidoRepository.AdicionarItem(pedidoItem);
+
                 _pedidoRepository.Atualizar(pedido);
             }
 

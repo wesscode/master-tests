@@ -8,5 +8,6 @@ namespace NerdStore.Vendas.Domain
         void Atualizar(Pedido pedido);
         Task<Pedido> ObterPedidoRascunhoPorClienteId(Guid clienteId);
         void AdicionarItem(PedidoItem pedidoItem);
+        void AtualizarItem(PedidoItem pedidoItem);
     }
 }
