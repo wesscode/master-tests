@@ -19,8 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\NerdStore.Vendas.Application\NerdStore.Vendas.Application.csproj" />
-    <ProjectReference Include="..\..\src\NerdStore.Core\NerdStore.Core.csproj" />
+    <ProjectReference Include="..\..\src\NerdStore.Vendas.Application\NerdStore.Vendas.Application.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -3,7 +3,6 @@ using NerdStore.Core.DomainObjects;
 using NerdStore.Core.Messages;
 using NerdStore.Vendas.Application.Events;
 using NerdStore.Vendas.Domain;
-using System.Threading;
 
 namespace NerdStore.Vendas.Application.Commands
 {

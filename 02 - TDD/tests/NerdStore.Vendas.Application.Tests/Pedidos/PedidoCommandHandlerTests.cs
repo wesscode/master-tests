@@ -3,7 +3,6 @@ using Moq;
 using Moq.AutoMock;
 using NerdStore.Vendas.Application.Commands;
 using NerdStore.Vendas.Domain;
-using System.Net.Sockets;
 
 namespace NerdStore.Vendas.Application.Tests.Pedidos
 {

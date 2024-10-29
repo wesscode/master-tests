@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\NerdStore.Core\NerdStore.Core.csproj" />
-    <ProjectReference Include="..\src\NerdStore.Vendas.Domain\NerdStore.Vendas.Domain.csproj" />
+    <Folder Include="Queries\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Queries\" />
+    <ProjectReference Include="..\NerdStore.Core\NerdStore.Core.csproj" />
+    <ProjectReference Include="..\NerdStore.Vendas.Domain\NerdStore.Vendas.Domain.csproj" />
   </ItemGroup>
 
 </Project>
