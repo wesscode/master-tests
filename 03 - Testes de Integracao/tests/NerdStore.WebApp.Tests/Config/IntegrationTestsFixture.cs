@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Testing;
 using NerdStore.WebApp.MVC;
-using NerdStore.WebApp.Tests.Config;
 
-namespace NerdStore.WebApp.Tests
+namespace NerdStore.WebApp.Tests.Config
 {
     [CollectionDefinition(nameof(IntegrationWebTestsFixtureCollection))]
     public class IntegrationWebTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Program>> { }
