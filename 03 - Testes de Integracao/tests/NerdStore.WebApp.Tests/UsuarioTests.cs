@@ -21,10 +21,13 @@ namespace NerdStore.WebApp.Tests
             var initialResponse = await _testsFixture.Client.GetAsync("/Identity/Account/Register");
             initialResponse.EnsureSuccessStatusCode();
 
+            var antiForgeryToken = _testsFixture.ObterAntiForgeryToken(await initialResponse.Content.ReadAsStringAsync());
+
             var email = "teste@teste.com";
 
             var formData = new Dictionary<string, string>
             {
+                {_testsFixture.AntiForgeryFieldName, antiForgeryToken },
                 {"Input.Email", email },
                 {"Input.Password", "Teste@123" },
                 {"Input.ConfirmPassword", "Teste@123" },
