@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Bogus;
+using Microsoft.AspNetCore.Mvc.Testing;
 using NerdStore.WebApp.MVC;
 using System.Text.RegularExpressions;
 
@@ -14,8 +15,10 @@ namespace NerdStore.WebApp.Tests.Config
     {
         public string AntiForgeryFieldName = "__RequestVerificationToken";
 
-        public readonly LojaAppFactory<TProgram> Factory;
+        public string UsuarioEmail;
+        public string UsuarioSenha;
 
+        public readonly LojaAppFactory<TProgram> Factory;
         public HttpClient Client;
 
         public IntegrationTestsFixture()
@@ -27,6 +30,13 @@ namespace NerdStore.WebApp.Tests.Config
 
             Factory = new LojaAppFactory<TProgram>();
             Client = Factory.CreateClient(clientOptions);
+        }
+
+        public void GerarUserSenha()
+        {
+            var faker = new Faker("pt_BR");
+            UsuarioEmail = faker.Internet.Email().ToLower();
+            UsuarioSenha = faker.Internet.Password(8, false, "", "@1Ab_");
         }
 
         public string ObterAntiForgeryToken(string htmlBody)
