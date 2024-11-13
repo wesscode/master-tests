@@ -25,7 +25,10 @@ namespace NerdStore.WebApp.Tests.Config
         {
             var clientOptions = new WebApplicationFactoryClientOptions
             {
-
+                AllowAutoRedirect = true,
+                BaseAddress = new Uri("http://localhost"),
+                HandleCookies = true,
+                MaxAutomaticRedirections = 7
             };
 
             Factory = new LojaAppFactory<TProgram>();
@@ -49,8 +52,8 @@ namespace NerdStore.WebApp.Tests.Config
             var formData = new Dictionary<string, string>
             {
                 {AntiForgeryFieldName, antiForgeryToken },
-                {"Input.Email", ""},
-                {"Input.Password", "" },
+                {"Input.Email", "teste@hotmail.com"},
+                {"Input.Password", "Teste@123" },
             };
 
             var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Identity/Account/Login")
