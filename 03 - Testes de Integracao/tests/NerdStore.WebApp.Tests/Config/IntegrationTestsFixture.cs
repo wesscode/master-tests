@@ -39,6 +39,28 @@ namespace NerdStore.WebApp.Tests.Config
             UsuarioSenha = faker.Internet.Password(8, false, "", "@1Ab_");
         }
 
+        public async Task RealizarLoginWeb()
+        {
+            var initialResponse = await Client.GetAsync("/Identity/Account/Login");
+            initialResponse.EnsureSuccessStatusCode();
+
+            var antiForgeryToken = ObterAntiForgeryToken(await initialResponse.Content.ReadAsStringAsync());
+
+            var formData = new Dictionary<string, string>
+            {
+                {AntiForgeryFieldName, antiForgeryToken },
+                {"Input.Email", ""},
+                {"Input.Password", "" },
+            };
+
+            var postRequest = new HttpRequestMessage(HttpMethod.Post, "/Identity/Account/Login")
+            {
+                Content = new FormUrlEncodedContent(formData)
+            };
+
+            await Client.SendAsync(postRequest);
+        }
+
         public string ObterAntiForgeryToken(string htmlBody)
         {
             var requestVerificationTokenMatch =
