@@ -1,5 +1,6 @@
-﻿using Features.Tests;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+﻿using System.Net.Http.Json;
+using Features.Tests;
+using NerdStore.WebApp.MVC;
 using NerdStore.WebApp.MVC.Models;
 using NerdStore.WebApp.Tests.Config;
 using System.Net.Http.Json;
@@ -28,8 +29,8 @@ namespace NerdStore.WebApp.Tests
                 Quantidade = 2
             };
 
-            //await _testsFixture.RealizarLoginApi();
-            //_testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
+            await _testsFixture.RealizarLoginApi();
+            _testsFixture.Client.AtribuirToken(_testsFixture.UsuarioToken);
 
             // Act
             var postResponse = await _testsFixture.Client.PostAsJsonAsync("api/carrinho", itemInfo);
