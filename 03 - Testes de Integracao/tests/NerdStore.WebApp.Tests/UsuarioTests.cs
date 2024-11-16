@@ -8,9 +8,9 @@ namespace NerdStore.WebApp.Tests
     [Collection(nameof(IntegrationWebTestsFixtureCollection))]
     public class UsuarioTests
     {
-        private readonly IntegrationTestsFixture<Program> _testsFixture;
+        private readonly IntegrationTestsFixture<StartupWebTests> _testsFixture;
 
-        public UsuarioTests(IntegrationTestsFixture<Program> testsFixture)
+        public UsuarioTests(IntegrationTestsFixture<StartupWebTests> testsFixture)
         {
             _testsFixture = testsFixture;
         }

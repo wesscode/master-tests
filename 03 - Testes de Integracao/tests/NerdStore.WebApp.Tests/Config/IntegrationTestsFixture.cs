@@ -8,12 +8,12 @@ using System.Text.RegularExpressions;
 namespace NerdStore.WebApp.Tests.Config
 {
     [CollectionDefinition(nameof(IntegrationWebTestsFixtureCollection))]
-    public class IntegrationWebTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Program>> { }
+    public class IntegrationWebTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<StartupWebTests>> { }
 
     [CollectionDefinition(nameof(IntegrationApiTestsFixtureCollection))]
-    public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<Program>> { }
+    public class IntegrationApiTestsFixtureCollection : ICollectionFixture<IntegrationTestsFixture<StartupApiTests>> { }
 
-    public class IntegrationTestsFixture<TProgram> : IDisposable where TProgram : class
+    public class IntegrationTestsFixture<TStartup> : IDisposable where TStartup : class
     {
         public string AntiForgeryFieldName = "__RequestVerificationToken";
 
@@ -22,7 +22,7 @@ namespace NerdStore.WebApp.Tests.Config
 
         public string UsuarioToken;
 
-        public readonly LojaAppFactory<TProgram> Factory;
+        public readonly LojaAppFactory<TStartup> Factory;
         public HttpClient Client;
 
         public IntegrationTestsFixture()
@@ -35,7 +35,7 @@ namespace NerdStore.WebApp.Tests.Config
                 MaxAutomaticRedirections = 7
             };
 
-            Factory = new LojaAppFactory<TProgram>();
+            Factory = new LojaAppFactory<TStartup>();
             Client = Factory.CreateClient(clientOptions);
         }
 

@@ -3,7 +3,6 @@ using Features.Tests;
 using NerdStore.WebApp.MVC;
 using NerdStore.WebApp.MVC.Models;
 using NerdStore.WebApp.Tests.Config;
-using System.Net.Http.Json;
 
 namespace NerdStore.WebApp.Tests
 {
@@ -11,9 +10,9 @@ namespace NerdStore.WebApp.Tests
     [Collection(nameof(IntegrationApiTestsFixtureCollection))]
     public class PedidoApiTests
     {
-        private readonly IntegrationTestsFixture<Program> _testsFixture;
+        private readonly IntegrationTestsFixture<StartupApiTests> _testsFixture;
 
-        public PedidoApiTests(IntegrationTestsFixture<Program> testsFixture)
+        public PedidoApiTests(IntegrationTestsFixture<StartupApiTests> testsFixture)
         {
             _testsFixture = testsFixture;
         }

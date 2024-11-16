@@ -7,9 +7,9 @@ namespace NerdStore.WebApp.Tests
     [Collection(nameof(IntegrationWebTestsFixtureCollection))]
     public class PedidoWebTests
     {
-        private readonly IntegrationTestsFixture<Program> _testsFixture;
+        private readonly IntegrationTestsFixture<StartupWebTests> _testsFixture;
 
-        public PedidoWebTests(IntegrationTestsFixture<Program> testsFixture)
+        public PedidoWebTests(IntegrationTestsFixture<StartupWebTests> testsFixture)
         {
             _testsFixture = testsFixture;
         }
