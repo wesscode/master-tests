@@ -47,7 +47,7 @@ namespace NerdStore.WebApp.Tests
             var responseString = await postResponse.Content.ReadAsStringAsync();
 
             postResponse.EnsureSuccessStatusCode();
-            Assert.Contains($"Hello {_testsFixture.UsuarioEmail}!", responseString);
+            Assert.Contains($"Hello {_testsFixture.UsuarioEmail}!", responseString); //Testando o MVC, sendo assim eu testo o retorno do controller, o mesmo retornar uma view, logo eu valido o retorno da view, aplicando técnicas como AngleSharp para extrair dados da view retornada.
         }
 
         [Fact(DisplayName = "Realizar cadastro senha fraca"), TestPriority(3)]
