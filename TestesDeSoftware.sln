@@ -47,6 +47,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.Catalogo.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NerdStore.WebApp.MVC", "03 - Testes de Integracao\src\NerdStore.WebApp.MVC\NerdStore.WebApp.MVC.csproj", "{C13A997D-A656-49B9-B939-574DACD18B24}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 - BDD - Testes de Automação", "04 - BDD - Testes de Automação", "{911FB3E0-12F1-49F0-B701-3BEED241E6A5}"
+	ProjectSection(SolutionItems) = preProject
+		04 - BDD - Testes de Automação\tests\NerdStore.BDD.Tests\NerdStore.BDD.Tests.csproj = 04 - BDD - Testes de Automação\tests\NerdStore.BDD.Tests\NerdStore.BDD.Tests.csproj
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
