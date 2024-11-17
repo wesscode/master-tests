@@ -37,4 +37,4 @@ E O mesmo produto já tenha sido adicionado ao carrinho anteriormente
 Quando O usuário adicionar a quantidade máxima permitida ao carrinho
 Então Receberá uma mensagem de erro mencionando que foi ultrapassada a quantidade limite
 
-# Prestar atenção para não criar ações repetidas.
+# Prestar atenção para não criar passos repetidos. Caso tenha passos que fazem a mesma coisa, deixar com os nomes iguais para o specflow crie um método só e utilize o mesmo método.
