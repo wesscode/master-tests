@@ -1,16 +1,28 @@
+using NerdStore.BDD.Tests.Config;
 using TechTalk.SpecFlow;
 
 namespace NerdStore.BDD.Tests.Pedido
 {
     [Binding]
+    [CollectionDefinition(nameof(AutomacaoWebFixtureCollection))]
     public class Pedido_AdicionarItemAoCarrinhoSteps
     {
+        private readonly AutomacaoWebTestsFixture _testsFixture;
+
+        public Pedido_AdicionarItemAoCarrinhoSteps(AutomacaoWebTestsFixture testsFixture)
+        {
+            _testsFixture = testsFixture;
+        }
+
         [Given(@"O usuario esteja logado")]
         public void DadoOUsuarioEstejaLogado() // Arrage do BDD
-        {            
+        {
             //AAA do passo*
 
-            // Arrange
+            // Arrange            
+            _testsFixture.BrowserHelper.IrParaUrl("https://desenvolvedor.io/");
+            _testsFixture.BrowserHelper.ClicarLinkPorTexto("ENTRAR");
+            _testsFixture.BrowserHelper.PreencherTextBoxPorId("Email", "contato@teste.com");
 
             // Act
 
