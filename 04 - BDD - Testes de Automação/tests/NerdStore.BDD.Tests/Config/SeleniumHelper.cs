@@ -1,8 +1,46 @@
-﻿namespace NerdStore.BDD.Tests.Config
-{
-    public class SeleniumHelper
-    {
+﻿using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium;
+using Microsoft.Extensions.Configuration;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 
+namespace NerdStore.BDD.Tests.Config
+{
+    public class SeleniumHelper : IDisposable
+    {
+        public IWebDriver WebDriver;
+        public readonly ConfigurationHelper Configuration;
+        public WebDriverWait Wait; //vem do pacote de suporte
+
+        public SeleniumHelper(Browser browser, ConfigurationHelper configuration, bool headless = true)
+        {
+            Configuration = configuration;
+            WebDriver = WebDriverFactory.CreateWebDriver(browser, Configuration.WebDrivers, headless);
+            WebDriver.Manage().Window.Maximize();
+            Wait = new WebDriverWait(WebDriver, TimeSpan.FromSeconds(30));
+        }
+
+        public string ObterUrl()
+        {
+            return WebDriver.Url;
+        }
+
+        public void IrParaUrl(string url)
+        {
+            WebDriver.Navigate().GoToUrl(url);
+        }
+
+        public void ClicarLinkPorTexto(string linkText)
+        {
+            var link = Wait.Until(ExpectedConditions.ElementIsVisible(By.LinkText(linkText)));
+            link.Click();
+        }
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class ConfigurationHelper
