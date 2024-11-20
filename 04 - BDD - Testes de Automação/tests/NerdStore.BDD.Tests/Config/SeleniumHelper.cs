@@ -7,7 +7,18 @@
 
     public class ConfigurationHelper
     {
+        private readonly IConfiguration _config; // mesma das startup
 
+        public ConfigurationHelper()
+        {
+            //DICA: Lembrar de ir na propriedade do arquivo json, alterar para a opção "Copy always"
+
+            _config = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json")
+                .Build();
+        }
+
+        public string WebDrivers => $"{_config.GetSection("WebDrivers").Value}";
     }
 
     public enum Browser
