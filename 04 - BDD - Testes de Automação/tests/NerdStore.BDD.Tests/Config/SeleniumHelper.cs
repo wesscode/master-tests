@@ -1,7 +1,4 @@
-﻿using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium;
-using Microsoft.Extensions.Configuration;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Support.Extensions;
@@ -139,66 +136,6 @@ namespace NerdStore.BDD.Tests.Config
         {
             WebDriver.Quit();
             WebDriver.Dispose();
-        }
-    }
-
-    public class ConfigurationHelper
-    {
-        private readonly IConfiguration _config; // mesma das startup
-
-        public ConfigurationHelper()
-        {
-            //DICA: Lembrar de ir na propriedade do arquivo json, alterar para a opção "Copy always"
-
-            _config = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
-                .Build();
-        }
-
-        public string VitrineUrl => _config.GetSection("VitrineUrl").Value;
-        public string ProdutoUrl => $"{DomainUrl}{_config.GetSection("ProdutoUrl").Value}";
-        public string CarrinhoUrl => $"{DomainUrl}{_config.GetSection("CarrinhoUrl").Value}";
-        public string DomainUrl => _config.GetSection("DomainUrl").Value;
-        public string RegisterUrl => $"{DomainUrl}{_config.GetSection("RegisterUrl").Value}";
-        public string LoginUrl => $"{DomainUrl}{_config.GetSection("LoginUrl").Value}";
-        public string WebDrivers => $"{_config.GetSection("WebDrivers").Value}";
-        public string FolderPath => Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
-        public string FolderPicture => $"{FolderPath}{_config.GetSection("FolderPicture").Value}";
-    }
-
-    public enum Browser
-    {
-        Chrome,
-        Firefox
-    }
-
-    public static class WebDriverFactory
-    {
-        public static IWebDriver CreateWebDriver(Browser browser, string caminhoDriver, bool headless)
-        {
-            IWebDriver webDriver = null;
-
-            switch (browser)
-            {
-                case Browser.Firefox:
-                    var optionsFireFox = new FirefoxOptions();
-                    if (headless)
-                        optionsFireFox.AddArgument("--headless");
-
-                    webDriver = new FirefoxDriver(caminhoDriver, optionsFireFox);
-
-                    break;
-                case Browser.Chrome:
-                    var options = new ChromeOptions();
-                    if (headless)
-                        options.AddArgument("--headless");
-
-                    webDriver = new ChromeDriver(caminhoDriver, options);
-
-                    break;
-            }
-
-            return webDriver;
         }
     }
 }
