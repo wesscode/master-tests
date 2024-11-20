@@ -19,7 +19,7 @@ namespace NerdStore.BDD.Tests.Usuario
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class UsuRio_CadastroFeature : object, Xunit.IClassFixture<UsuRio_CadastroFeature.FixtureData>, System.IDisposable
+    public partial class Usuario_CadastroFeature : object, Xunit.IClassFixture<Usuario_CadastroFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace NerdStore.BDD.Tests.Usuario
 #line 1 "CadastroDeUsuario.feature"
 #line hidden
         
-        public UsuRio_CadastroFeature(UsuRio_CadastroFeature.FixtureData fixtureData, NerdStore_BDD_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public Usuario_CadastroFeature(Usuario_CadastroFeature.FixtureData fixtureData, NerdStore_BDD_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,45 +40,8 @@ namespace NerdStore.BDD.Tests.Usuario
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Usuario", "Usu�rio - Cadastro", @"	Como um visitante da loja
-	Eu desejo me cadastrar como usu�rio
-	Para que eu possa realizar compras na loja
-
-
-Cen�rio: Cadastro de usu�rio com sucesso
-Dado Que o visitante est� acessando o site da loja
-Quando Ele clicar em registrar
-E Preencher os dados do formulario
-	| Dados                |
-	| Email                |
-	| Senha                |
-	| Confirma��o da Senha |
-E Clicar no bot�o registrar
-Ent�o Ele ser� redirecionado para a vitrine
-E Uma sauda��o com seu e-mail ser� exibida no menu superior
-
-
-Cen�rio: Cadastro com senha sem maiusculas
-Dado Que o visitante est� acessando o site da loja
-Quando Ele clicar em registrar
-E Preencher os dados do formulario com uma senha sem maiusculas
-		| Dados                |
-		| E-mail               |
-		| Senha                |
-		| Confirma��o de senha |
-E Clicar no bot�o registrar
-Ent�o Ele receber� uma mensagem de erro que a senha precisa conter uma letra maiuscula
-
-Cen�rio: Cadastro com senha sem caractere especial
-Dado Que o visitante est� acessando o site da loja
-Quando Ele clicar em registrar
-E Preencher os dados do formulario com uma senha sem caractere especial
-		| Dados                |
-		| E-mail               |
-		| Senha                |
-		| Confirma��o de senha |
-E Clicar no bot�o registrar
-Ent�o Ele receber� uma mensagem de erro que a senha precisa conter um caractere especial", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Usuario", "Usuário - Cadastro", "\tComo um visitante da loja\r\n\tEu desejo me cadastrar como usuário\r\n\tPara que eu po" +
+                    "ssa realizar compras na loja", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -118,6 +81,145 @@ Ent�o Ele receber� uma mensagem de erro que a senha precisa conter um caract
             this.TestTearDown();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Cadastro de usuário com sucesso")]
+        [Xunit.TraitAttribute("FeatureTitle", "Usuário - Cadastro")]
+        [Xunit.TraitAttribute("Description", "Cadastro de usuário com sucesso")]
+        public void CadastroDeUsuarioComSucesso()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro de usuário com sucesso", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 7
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 8
+testRunner.Given("Que o visitante está acessando o site da loja", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 9
+testRunner.When("Ele clicar em registrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Dados"});
+                table1.AddRow(new string[] {
+                            "Email"});
+                table1.AddRow(new string[] {
+                            "Senha"});
+                table1.AddRow(new string[] {
+                            "Confirmação da Senha"});
+#line 10
+testRunner.And("Preencher os dados do formulario", ((string)(null)), table1, "E ");
+#line hidden
+#line 15
+testRunner.And("Clicar no botão registrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 16
+testRunner.Then("Ele será redirecionado para a vitrine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 17
+testRunner.And("Uma saudação com seu e-mail será exibida no menu superior", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Cadastro com senha sem maiusculas")]
+        [Xunit.TraitAttribute("FeatureTitle", "Usuário - Cadastro")]
+        [Xunit.TraitAttribute("Description", "Cadastro com senha sem maiusculas")]
+        public void CadastroComSenhaSemMaiusculas()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro com senha sem maiusculas", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 20
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 21
+testRunner.Given("Que o visitante está acessando o site da loja", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 22
+testRunner.When("Ele clicar em registrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Dados"});
+                table2.AddRow(new string[] {
+                            "E-mail"});
+                table2.AddRow(new string[] {
+                            "Senha"});
+                table2.AddRow(new string[] {
+                            "Confirmação de senha"});
+#line 23
+testRunner.And("Preencher os dados do formulario com uma senha sem maiusculas", ((string)(null)), table2, "E ");
+#line hidden
+#line 28
+testRunner.And("Clicar no botão registrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 29
+testRunner.Then("Ele receberá uma mensagem de erro que a senha precisa conter uma letra maiuscula", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [Xunit.SkippableFactAttribute(DisplayName="Cadastro com senha sem caractere especial")]
+        [Xunit.TraitAttribute("FeatureTitle", "Usuário - Cadastro")]
+        [Xunit.TraitAttribute("Description", "Cadastro com senha sem caractere especial")]
+        public void CadastroComSenhaSemCaractereEspecial()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cadastro com senha sem caractere especial", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 31
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 32
+testRunner.Given("Que o visitante está acessando o site da loja", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 33
+testRunner.When("Ele clicar em registrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Dados"});
+                table3.AddRow(new string[] {
+                            "E-mail"});
+                table3.AddRow(new string[] {
+                            "Senha"});
+                table3.AddRow(new string[] {
+                            "Confirmação de senha"});
+#line 34
+testRunner.And("Preencher os dados do formulario com uma senha sem caractere especial", ((string)(null)), table3, "E ");
+#line hidden
+#line 39
+testRunner.And("Clicar no botão registrar", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 40
+testRunner.Then("Ele receberá uma mensagem de erro que a senha precisa conter um caractere especia" +
+                        "l", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
@@ -125,12 +227,12 @@ Ent�o Ele receber� uma mensagem de erro que a senha precisa conter um caract
             
             public FixtureData()
             {
-                UsuRio_CadastroFeature.FeatureSetup();
+                Usuario_CadastroFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                UsuRio_CadastroFeature.FeatureTearDown();
+                Usuario_CadastroFeature.FeatureTearDown();
             }
         }
     }

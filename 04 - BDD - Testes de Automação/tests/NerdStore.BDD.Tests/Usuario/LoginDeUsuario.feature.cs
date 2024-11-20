@@ -19,7 +19,7 @@ namespace NerdStore.BDD.Tests.Usuario
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class UsuRio_LoginFeature : object, Xunit.IClassFixture<UsuRio_LoginFeature.FixtureData>, System.IDisposable
+    public partial class Usuario_LoginFeature : object, Xunit.IClassFixture<Usuario_LoginFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -31,7 +31,7 @@ namespace NerdStore.BDD.Tests.Usuario
 #line 1 "LoginDeUsuario.feature"
 #line hidden
         
-        public UsuRio_LoginFeature(UsuRio_LoginFeature.FixtureData fixtureData, NerdStore_BDD_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public Usuario_LoginFeature(Usuario_LoginFeature.FixtureData fixtureData, NerdStore_BDD_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,20 +40,8 @@ namespace NerdStore.BDD.Tests.Usuario
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Usuario", "Usu�rio - Login", @"	Como um usuario
-	Eu desejo realizar o login
-	Para que eu possa acessar as demais funcionalidades
-
-Cen�rio: Relizar login com sucesso
-Dado Que o visitante est� acessando o site da loja
-Quando Ele clicar em login
-E Preencher os dados do formulario de login
-		| Dados                |
-		| E-mail               |
-		| Senha                |
-E Clicar no bot�o login
-Ent�o Ele ser� redirecionado para a vitrine
-E Uma sauda��o com seu e-mail ser� exibida no menu superior", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("pt-BR"), "Usuario", "Usuário - Login", "\tComo um usuario\r\n\tEu desejo realizar o login\r\n\tPara que eu possa acessar as dema" +
+                    "is funcionalidades", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -93,6 +81,52 @@ E Uma sauda��o com seu e-mail ser� exibida no menu superior", ProgrammingL
             this.TestTearDown();
         }
         
+        [Xunit.SkippableFactAttribute(DisplayName="Relizar login com sucesso")]
+        [Xunit.TraitAttribute("FeatureTitle", "Usuário - Login")]
+        [Xunit.TraitAttribute("Description", "Relizar login com sucesso")]
+        public void RelizarLoginComSucesso()
+        {
+            string[] tagsOfScenario = ((string[])(null));
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Relizar login com sucesso", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 6
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 7
+testRunner.Given("Que o visitante está acessando o site da loja", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Dado ");
+#line hidden
+#line 8
+testRunner.When("Ele clicar em login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line hidden
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Dados"});
+                table4.AddRow(new string[] {
+                            "E-mail"});
+                table4.AddRow(new string[] {
+                            "Senha"});
+#line 9
+testRunner.And("Preencher os dados do formulario de login", ((string)(null)), table4, "E ");
+#line hidden
+#line 13
+testRunner.And("Clicar no botão login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+#line 14
+testRunner.Then("Ele será redirecionado para a vitrine", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+#line hidden
+#line 15
+testRunner.And("Uma saudação com seu e-mail será exibida no menu superior", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
         [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
         [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
         public class FixtureData : System.IDisposable
@@ -100,12 +134,12 @@ E Uma sauda��o com seu e-mail ser� exibida no menu superior", ProgrammingL
             
             public FixtureData()
             {
-                UsuRio_LoginFeature.FeatureSetup();
+                Usuario_LoginFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                UsuRio_LoginFeature.FeatureTearDown();
+                Usuario_LoginFeature.FeatureTearDown();
             }
         }
     }
