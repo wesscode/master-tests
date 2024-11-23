@@ -49,25 +49,45 @@ namespace NerdStore.BDD.Tests.Usuario
         [When(@"Preencher os dados do formulario com uma senha sem maiusculas")]
         public void QuandoPreencherOsDadosDoFormularioComUmaSenhaSemMaiusculas(Table table)
         {
-            throw new PendingStepException();
-        }
+            // Arrange
+            _testsFixture.GerarDadosUsuario();
+            var usuario = _testsFixture.Usuario;
+            usuario.Senha = "teste@123";
 
-        [Then(@"Ele receberá uma mensagem de erro que a senha precisa conter uma letra maiuscula")]
-        public void EntaoEleReceberaUmaMensagemDeErroQueASenhaPrecisaConterUmaLetraMaiuscula()
-        {
-            throw new PendingStepException();
+            // Act
+            _cadastroDeUsuarioTela.PreencherFormularioRegistro(usuario);
+
+            // Assert
+            Assert.True(_cadastroDeUsuarioTela.ValidarPreenchimentoFormularioRegistro(usuario));
         }
 
         [When(@"Preencher os dados do formulario com uma senha sem caractere especial")]
         public void QuandoPreencherOsDadosDoFormularioComUmaSenhaSemCaractereEspecial(Table table)
         {
-            throw new PendingStepException();
+            // Arrange
+            _testsFixture.GerarDadosUsuario();
+            var usuario = _testsFixture.Usuario;
+            usuario.Senha = "Teste123";
+
+            // Act
+            _cadastroDeUsuarioTela.PreencherFormularioRegistro(usuario);
+
+            // Assert
+            Assert.True(_cadastroDeUsuarioTela.ValidarPreenchimentoFormularioRegistro(usuario));
+        }
+
+        [Then(@"Ele receberá uma mensagem de erro que a senha precisa conter uma letra maiuscula")]
+        public void EntaoEleReceberaUmaMensagemDeErroQueASenhaPrecisaConterUmaLetraMaiuscula()
+        {
+            // Assert
+            Assert.True(_cadastroDeUsuarioTela.ValidarMensagemDeErroFormulario("Passwords must have at least one uppercase ('A'-'Z')"));
         }
 
         [Then(@"Ele receberá uma mensagem de erro que a senha precisa conter um caractere especial")]
         public void EntaoEleReceberaUmaMensagemDeErroQueASenhaPrecisaConterUmCaractereEspecial()
         {
-            throw new PendingStepException();
+            // Assert
+            Assert.True(_cadastroDeUsuarioTela.ValidarMensagemDeErroFormulario("Passwords must have at least one non alphanumeric character"));
         }
     }
 }
