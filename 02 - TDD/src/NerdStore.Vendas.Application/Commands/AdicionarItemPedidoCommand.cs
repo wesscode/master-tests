@@ -52,9 +52,9 @@ namespace NerdStore.Vendas.Application.Commands
                 .WithMessage(NomeErroMsg);
 
             RuleFor(c => c.Quantidade)
-                .GreaterThan(0)
+                .GreaterThan(0) // quando não for menor que 0
                 .WithMessage(QtdMinErroMsg)
-                .LessThanOrEqualTo(Pedido.MAX_UNIDADES_ITEM)
+                .LessThan(Pedido.MAX_UNIDADES_ITEM) // quando não for menor que 15
                 .WithMessage(QtdMaxErroMsg);
 
             RuleFor(c => c.ValorUnitario)
