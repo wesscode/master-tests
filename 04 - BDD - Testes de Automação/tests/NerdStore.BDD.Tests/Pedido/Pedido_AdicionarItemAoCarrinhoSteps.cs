@@ -101,20 +101,22 @@ namespace NerdStore.BDD.Tests.Pedido
         public void QuandoOUsuarioAdicionarUmItemAcimaDaQuantidadeMaximaPermitida()
         {
             // Arrange
+            _pedidoTela.ClicarAdicionarQuantidadeItens(Vendas.Domain.Pedido.MAX_UNIDADES_ITEM + 1);
 
             // Act
-
-            // Assert
+            _pedidoTela.ClicarEmComprarAgora();
         }
 
         [Then(@"Receberá uma mensagem de erro mencionando que foi ultrapassada a quantidade limite")]
-        public void EntãoReceberaUmaMensagemDeErroMencionandoQueFoiUltrapassadaAQuantidadeLimite()
+        public void EntaoReceberaUmaMensagemDeErroMencionandoQueFoiUltrapassadaAQuantidadeLimite()
         {
             // Arrange
+            var mensagem = _pedidoTela.ObterMensagemDeErroProduto();
 
             // Act
 
             // Assert
+            Assert.Contains($"A quantidade máxima de um item é {Vendas.Domain.Pedido.MAX_UNIDADES_ITEM}", mensagem);
         }
 
         [Given(@"O mesmo produto já tenha sido adicionado ao carrinho anteriormente")]

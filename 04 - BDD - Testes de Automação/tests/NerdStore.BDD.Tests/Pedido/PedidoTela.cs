@@ -53,5 +53,22 @@ namespace NerdStore.BDD.Tests.Pedido
                 .Replace("$", string.Empty).Replace(",", string.Empty).Trim());
         }
 
+        public void ClicarAdicionarQuantidadeItens(int quantidade)
+        {
+            var botaoAdicionar = Helper.ObterElementoPorClasse("btn-plus");
+            if (botaoAdicionar == null) return;
+
+            for (var i = 1; i < quantidade; i++)
+            {
+                botaoAdicionar.Click();
+            }
+        }
+
+        public string ObterMensagemDeErroProduto()
+        {
+            return Helper.ObterTextoElementoPorClasseCss("alert-danger");
+        }
+
+        
     }
 }
