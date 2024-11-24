@@ -30,5 +30,17 @@ namespace NerdStore.BDD.Tests.Usuario
             var botao = Helper.ObterElementoPorXPath("//*[@id=\"login-submit\"]");
             botao.Click();
         }
+
+        public bool Login(Usuario usuario)
+        {
+            AcessarSiteLoja();
+            ClicarNoLinkLogin();
+            PreencherFormularioLogin(usuario);
+            if (!ValidarPreenchimentoFormularioLogin(usuario)) return false;
+            ClicarNoBotaoLogin();
+            if (!ValidarSaudacaoUsuarioLogado(usuario)) return false;
+
+            return true;
+        }
     }
 }
