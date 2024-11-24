@@ -11,6 +11,7 @@ namespace NerdStore.BDD.Tests.Config
         public readonly ConfigurationHelper Configuration;
         public WebDriverWait Wait; //vem do pacote de suporte
 
+        //se quiser abrir todo o teste em unico browser, aqui devemos aplicar um padrão singleton
         public SeleniumHelper(Browser browser, ConfigurationHelper configuration, bool headless = true)
         {
             Configuration = configuration;
