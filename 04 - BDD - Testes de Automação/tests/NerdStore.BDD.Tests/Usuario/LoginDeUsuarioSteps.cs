@@ -4,7 +4,7 @@ using TechTalk.SpecFlow;
 namespace NerdStore.BDD.Tests.Usuario
 {
     [Binding]
-    public class Usuario_LoginDeUsuarioSteps
+    public class LoginDeUsuarioSteps
     {
         [When(@"Ele clicar em login")]
         public void QuandoEleClicarEmLogin()

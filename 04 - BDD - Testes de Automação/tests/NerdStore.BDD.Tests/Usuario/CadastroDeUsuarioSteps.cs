@@ -5,12 +5,12 @@ namespace NerdStore.BDD.Tests.Usuario
 {
     [Binding]
     [CollectionDefinition(nameof(AutomacaoWebFixtureCollection))]
-    public class Usuario_CadastroDeUsuarioSteps
+    public class CadastroDeUsuarioSteps
     {
         private readonly AutomacaoWebTestsFixture _testsFixture;
         private readonly CadastroDeUsuarioTela _cadastroDeUsuarioTela;
 
-        public Usuario_CadastroDeUsuarioSteps(AutomacaoWebTestsFixture testsFixture)
+        public CadastroDeUsuarioSteps(AutomacaoWebTestsFixture testsFixture)
         {
             _testsFixture = testsFixture;
             _cadastroDeUsuarioTela = new CadastroDeUsuarioTela(_testsFixture.BrowserHelper);
